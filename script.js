@@ -14,3 +14,10 @@ function getComputerChoice(){
       return "scissors";
     }
   }
+  function getHumanChoice() {
+    const playerAnswer = prompt("Choose rock(r), paper(p) or scissors(s).").lowercase;
+    if(playerAnswer === "r") return "rock";
+    if(playerAnswer === "p") return "paper";
+    if(playerAnswer === "s") return "scissors";
+  }
+  
