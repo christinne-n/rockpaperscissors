@@ -18,33 +18,47 @@ function getComputerChoice(){
     }
   }
 
-  function getHumanChoice() {  
-    const rock = document.querySelector(".rock");
-    rock.addEventListener("click", () => {return "rock";});
-    const paper = document.querySelector(".paper");
-    rock.addEventListener("click", () => {return "paper";});
-    const scissors = document.querySelector(".scissors");
-    rock.addEventListener("click", () => {return "scissors";});
-  }
   function playRound(humanChoice, computerChoice) {
-    console.log(`You chose ${humanChoice}`);
-    console.log(`Computer chose ${computerChoice}`);
+    const resultsDiv = document.getElementById("results");
+    const scoreDiv = document.getElementById("score");
+    const winnerDiv = document.getElementById("winner");
     
     if(humanChoice === computerChoice){
-      console.log(`It's a tie! Current score: You - ${humanScore} \n Computer - ${computerScore}`)
+      resultsDiv.textContent = `Tie! You both chose ${humanChoice}.`;    
     }
     else if (
       (humanChoice === "rock" && computerChoice === "scissors") ||
       (humanChoice === "paper" && computerChoice === "rock") ||
       (humanChoice === "scissors" && computerChoice === "paper") ) {
         humanScore++;
-        console.log(`You win! Current score: You - ${humanScore} \n Computer - ${computerScore}`);
+        resultsDiv.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
       }
     else{
       computerScore++;
-      console.log(`You lose! Current score: You - ${humanScore} \n Computer - ${computerScore}`);
+      resultsDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
+    }
+
+    scoreDiv.textContent = `Score — You: ${humanScore} | Computer: ${computerScore}`;
+
+    if (humanScore === 5 || computerScore === 5) {
+      winnerDiv.textContent =
+        humanScore === 5 ? "You win!" : "Computer wins!";
+      disableButtons();
     }
   }
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
+
+  function disableButtons() {
+    document.querySelector(".rock").disabled = true;
+    document.querySelector(".paper").disabled = true;
+    document.querySelector(".scissors").disabled = true;
+  }
+
+  document.querySelector(".rock").addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+  });
+  document.querySelector(".paper").addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+  });
+  document.querySelector(".scissors").addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+  });
