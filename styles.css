@@ -1,0 +1,51 @@
+*{
+    background-color: #2152BA;
+    font-family:Arial, Helvetica, sans-serif
+}
+.title{
+    font-size: 60px;
+    text-align: center;
+    padding-top: 40px;
+    color: #FFDD00;
+    font-weight: bold;
+}
+p{
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.scoreboard{
+    text-align: center;
+    padding: 30px;
+    font-size: 28px;
+    line-height: 2;
+    font-weight: bold;
+    color: #FFDD00;
+}
+.gameoptions{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+button{
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+    font-size: 22px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+button:hover{
+    background-color: #D6D6D6;
+}
+button:active{
+    background-color: #919191;
+}
+.restartbtn{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    
+}
